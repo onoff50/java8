@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+mainClassName = "com.MyMain"
+
+sourceCompatibility = 1.5
+version = '1.0'
+
+
+task initSourceFolders { // add << before { to prevent executing during configuration phase
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.2'
+    compile group: 'com.google.code.guice', name: 'guice', version: '1.0'
+    compile group: 'com.squareup.retrofit', name: 'retrofit', version: '1.9.0'
+    compile group: 'com.squareup.okhttp', name: 'okhttp-urlconnection', version: '2.0.0'
+    compile group: 'com.squareup.okhttp', name: 'okhttp', version: '2.0.0'
+
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
