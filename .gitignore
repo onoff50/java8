@@ -1,1 +1,9 @@
-build/*
+**/target/*
+*.ipr
+*.iml
+*.iws
+*.idea
+flipkart-boot.log
+**/build/*
+.gradle/*
+*.DS_Store
